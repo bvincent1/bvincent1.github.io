@@ -1,10 +1,10 @@
 # Mandatory settings
 
-name: Chalk
+name: Hack n Slash
 paginate: 25
 paginate_path: "/posts/page/:num/"
-url: # add site url http://example.com/
-blog_theme: light # Or use dark
+url: blog.hacknslash.io # add site url http://example.com/
+blog_theme: dark # Or use dark
 
 # Optional settings
 
@@ -16,10 +16,10 @@ social:
   dribbble: # Add your Dribbble handle
   facebook: # Add your Facebook handle
   flickr: # Add your Flickr handle
-  github: # Add your GitHub handle
+  github: bvincent1 # Add your GitHub handle
   linkedin: # Add your LinkedIn handle
   twitter: # Add your Twitter handle
-  email: # Add your Email address
+  email: benjc.vincent@gmail.com # Add your Email address
   bitcoin: # Add your Bitcoin link or address
 
 # Important settings (change at own risk)

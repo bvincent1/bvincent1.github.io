@@ -1,6 +1,8 @@
 ---
 layout: post
 title: eClass for lazy people
+description: "I'm lazy. Checking for updated notes is lame. WGET has a `--no-clobber` option."
+tags: [python]
 ---
 ## Intro
 Welcome to my first post and foray into the world of online blogging. Witness my attempt to both document my projects and teach others about the wonderful world of hack and slash scripting that I have come to love.

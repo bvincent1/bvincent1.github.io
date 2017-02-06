@@ -41,7 +41,7 @@ Install serverless:
 npm install -g serverless
 ```
 
-Set environment variables to your aws keys:
+Set environment variables to your aws admin keys:
 ```bash
 # add to .bashrc or whatever file you use
 export AWS_ACCESS_KEY_ID=GETUROWNACCESSKEY
@@ -59,20 +59,44 @@ Deploy the project:
 serverless deploy
 ```
 
-Look at how easy that was! We just deployed code to a server without any manual configuration, or even tikering to get it working. Of course if we wanted to tinker with it we can absolutely look into `serverless.yaml` which houses all our configurations, names, and `env` variables that we need. So lets do that.
+Look at how easy that was! We just deployed code to a server without any manual configuration, or even tinkering to get it working. Of course if we wanted to tinker with it we can absolutely look into `serverless.yaml` which houses all our configurations, names, and `env` variables that we need. So lets do that.
 
-```yaml
-service: aws-nodejs
+```
+service: aws-nodejs # name of our app
 
 provider:
-  name: aws
+  name: aws # which FaaS provider we're going to use
   runtime: nodejs4.3
 
 functions:
-  hello:
-    handler: handler.hello
+  hello: # name of our function at the FaaS level
+    handler: handler.hello # file_name.function_name
 ```
 
+Now this is a basic app that doesn't do much. But the point here is to show just how each it is to start and create an app from a basic template. From here we could add libs with `npm install newest-crazy-thing` and it'd automatically get installed at the FaaS level. Now all we have to figure out is the code, not the configuration.
+
+## AWS Lambda framework
+Lets take a look at the function call and see what the arguments and responses look like.
+
+```js
+'use strict';
+
+// our FaaS function needs to match the handler file_name.function_name template
+module.exports.hello = (event, context, callback) => {
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: 'Go Serverless v1.0! Your function executed successfully!',
+      input: event, // what is an event!!!!!
+    }),
+  };
+
+  callback(null, response);
+
+  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
+  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
+};
+```
 
 ## Conclusion
 

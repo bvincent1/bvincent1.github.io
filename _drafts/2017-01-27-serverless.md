@@ -6,7 +6,9 @@ og_image: "documentation/sample-image.jpg"
 tags: [serverless, aws]
 ---
 
-## Lambda, AKA  FaaS
+## Lambda
+"AKA FaaS"
+
 If you're like me, one of the biggest problems you've always had was where to run your code. Sure most think that you can just scramble together a home server and run it all locally. But then how to you remotely do changes? Is it only secured to the local network? How do you know if it breaks? I can't connect, did the server shutdown? Why didn't my cron job work?
 
 These questions are constantly at the back of mind when I work with my crappy out of date server running on decode old hardware plugged into the corner of my living room where it won't keep me or my roommates awake at night.
@@ -76,6 +78,8 @@ functions:
 Now this is a basic app that doesn't do much. But the point here is to show just how each it is to start and create an app from a basic template. From here we could add libs with `npm install newest-crazy-thing` and it'd automatically get installed at the FaaS level. Now all we have to figure out is the code, not the configuration.
 
 ## AWS Lambda framework
+"Nano services with a smile!"
+
 Lets take a look at the function call and see what the arguments and responses look like.
 
 ```js
@@ -87,20 +91,30 @@ module.exports.hello = (event, context, callback) => {
     statusCode: 200,
     body: JSON.stringify({
       message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event, // what is an event!!!!!
+      input: event,
     }),
   };
 
+  // send our response to the http event
   callback(null, response);
-
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // callback(null, { message: 'Go Serverless v1.0! Your function executed successfully!', event });
 };
+```
+
+Here's a quick overview of the arguments passed to us:
+- `context` is an object for looking up runtime data about our function (time left, function name, [etc](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html#nodejs-prog-model-context-methods))
+- `event` is the event that triggered our function. In our case this will be the body of the request
+
+*If we weren't using http events, the event would be one of [these](http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html)*
+
+The callback arguments looks like
+```js
+callback(Error error, Object result);
 ```
 
 ## Conclusion
 
 Now I don't like amazon as a software company because of their crazy stupid software practices (Yeah take that Jeff Bezos, I'm calling you out!!), but that doesn't mean that they don't have a lot of cool stuff. Unfortunately navigating their cool stuff requires a lot of digging around, and even reading blogs just to figure out what all these names even mean.
 
-[ElasticBeanstalk]()? Da fuck is that?
-At least [S3]() makes sense.
+All in all, I'm super excited by this stuff since its very much a service that handles my use cases and offer a lot of space for interesting development.
+
+Long term my only concern is with scalability and long-running functions. It will be interesting to see how the eco-scape grows around this service and to see how it will adapt to the restrictions that it presents.

@@ -13,7 +13,7 @@ If you're like me, one of the biggest problems you've always had was where to ru
 
 These questions are constantly at the back of mind when I work with my crappy out of date server running on decode old hardware plugged into the corner of my living room where it won't keep me or my roommates awake at night.
 
-I try to keep all these problems in mind whenever I find myself bored at work since it'll give me something to research and keep up to date with. Most recently I came across [Serverless]() and AWS [Lambda](). When I first looked into it, it seemed like a strange and very niche concept.
+I try to keep all these problems in mind whenever I find myself bored at work since it'll give me something to research and keep up to date with. Most recently I came across [Serverless](https://serverless.com/) and AWS [Lambda](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html). When I first looked into it, it seemed like a strange and very niche concept.
 
 "Who'd wanna run only 1 function at a time? How could you even do anything with that?"
 

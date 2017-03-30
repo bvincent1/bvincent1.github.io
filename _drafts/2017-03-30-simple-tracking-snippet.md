@@ -2,7 +2,7 @@
 layout: post
 title: "Simple Tracking Snippet"
 description: "How to make a tracking snippet in under 20 minutes"
-tags: [serverless, node, REST]
+tags: [serverless, javascript]
 ---
 
 # Tracking a page
@@ -19,3 +19,7 @@ Now this is some pretty sparse information, and really I could do a lot better u
 
 
 My main reason for having this snippet is to know when someone in particular navigates my site. This is done via the query values. I generally leave special `ref=blah` key-values in all the links to my blog. These refs allow me to track where the user came from. For instance my resume has a link to my blog, and it includes the key value `ref=resume`. Now when I send in my resume I can roughly check to see if they even looked at it, or if they just ignored it and moved on. It's not perfect, but really... I'm not picky.
+
+At it's core this project consists of 2 chunks, the frontend snippet that handles the data gathering, and the backend that logs this information. Let's dive into the frontend and see what we can scrape up!
+
+# Snitcher Snippet

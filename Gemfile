@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "autoprefixer-rails"
 gem "html-proofer"
-gem "jekyll"
+gem 'jekyll', '~> 3.4.0'
 gem "jekyll-assets"
 gem "jekyll-paginate"
 gem "jekyll-sitemap"

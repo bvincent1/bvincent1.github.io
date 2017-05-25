@@ -45,12 +45,19 @@
         mutateLinks("ref=" + ref + "&");
       }
 
-      $.getJSON("https://httpbin.org/ip").done(function (data) {
-        var view = {};
-        view.origin = data.origin;
-        view.ref = getParameterByName("ref");
-        view.date = Date.now();
-        view.href = window.location.href;
+      $.getJSON("http://ip-api.com/json/?fields=9201").done(function (data) {
+        const view = {
+          origin: data.query,
+          city: data.city,
+          country: data.country,
+          zip: data.zip,
+          isp: data.isp,
+          lat: data.lat,
+          lon: data.lon,
+          timezone: data.timezone,
+          ref: getParameterByName("ref"),
+          href: window.location.href
+        };
 
         $.post(endpoint, JSON.stringify(view));
       });

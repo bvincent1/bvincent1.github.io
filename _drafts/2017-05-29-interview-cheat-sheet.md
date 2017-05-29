@@ -23,9 +23,11 @@ Great...
 
 So here's what I am in plain text.
 
-I'm not lazy by any means, and I'm perfectly willing to put in a lot of hard work (holds up CS degree that required a lot of hard work), but I am lazy in the sense that I won't go out of my way to make things harder and I'm only going to fulfill a feature as simply as possible (holds up CS degree that has the minimum required non-cs classes, and has the most generalized minor known to man).
+I'm not lazy by any means, and I'm perfectly willing to put in a lot of hard work (holds up CS degree that required a lot of hard work), but I am lazy in the sense that I won't go out of my way to make things harder and I'm only going to fulfill a feature as simply as possible (holds up CS degree that has the minimum required non-CS classes, and has the most generalized minor known to man).
 
-Maybe I should put optimized instead of lazy?
+<div style='position:relative;padding-bottom:61%'><iframe src='https://gfycat.com/ifr/PowerfulContentCanadagoose' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
+
+*Maybe I should put optimized instead of lazy?*
 
 So with that out of the way if your going to ask me to write a queue sorting algorithm on a whiteboard, then I highly suggest that you use google instead. I'm not going to know that, I probably will never know that, and I don't ever wan't to know that unless someone asks me to.
 
@@ -34,13 +36,14 @@ However if you ask me how I'd refactor a simple program to make it more function
 If I could recommend a list of things to talk to me about, I'd suggest starting with:
 - functional programing (see above comment)
 - python list or string comprehension (like seriously, how easy it is compared to JS, or god forbid C?)
-- web development (I love this kind of stuff!!)
-- aws + linux stuff (`docker run ubuntu -i < "apt-get install cow && moo"`) (I know this doesn't actually work, but I could get it to to work!)
-- testing (I'm so bad at making tests, but I still try to get better and this would be a good way to see how I'm doing)
+- web development (http, rest, crud, etc... I love this kind of stuff!!)
+- aws + linux stuff (`docker run ubuntu -i`)
+- testing (I'm so bad at making tests, but I still try to get better and this would be a good way to see how I'm doing!)
+- ask me about any projects I've been working on (or any of my pinned github repos)
 
 If that's not enough, a list of things not to ask me about would include, but not be limited to:
 - algorithms (You could maybe ask me about implementing (a simple) one, but don't ask me to name one)
-- general code syntax (I use a lot of languages, and a lot of linters so I mix them up constantly)
+- general code syntax (I use a lot of languages, and a lot of linters so I mix them up constantly, everything looks like Python + TS + JS + Rust)
 -
 
 # Sheet

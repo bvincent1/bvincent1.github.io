@@ -119,3 +119,5 @@ Now I don't like amazon as a software company because of their crazy stupid soft
 All in all, I'm super excited by this stuff since it's very much a service that handles my use cases and offer a lot of space for interesting development.
 
 Long term my only concern is with scalability and long-running functions. It will be interesting to see how the eco-scape grows around this service and to see how it will adapt to the restrictions that it presents.
+
+Think that I'm wrong? Maybe I missed out on something? Leave me a comment over [here](https://github.com/bvincent1/bvincent1.github.io/issues/2)

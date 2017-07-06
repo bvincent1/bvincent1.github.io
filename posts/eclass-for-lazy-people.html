@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WNN693');</script>
+  <!-- End Google Tag Manager -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Hack n Slash | eClass for lazy people</title>
+  <meta name="description" content="I'm lazy. Checking for updated notes is lame. WGET has a `--no-clobber` option.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="eClass for lazy people">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="blog.hacknslash.io/posts/eclass-for-lazy-people">
+  <meta property="og:description" content="I'm lazy. Checking for updated notes is lame. WGET has a `--no-clobber` option.">
+  <meta property="og:site_name" content="Hack n Slash">
+  <meta property="og:image" content="blog.hacknslash.io/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="blog.hacknslash.io/posts/eclass-for-lazy-people">
+  <meta name="twitter:title" content="eClass for lazy people">
+  <meta name="twitter:description" content="I'm lazy. Checking for updated notes is lame. WGET has a `--no-clobber` option.">
+  <meta name="twitter:image" content="blog.hacknslash.io/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="blog.hacknslash.io/feed.xml" type="application/rss+xml" rel="alternate" title="Hack n Slash Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/dark.css">
+  
+
+  <script src="https://cdn.rawgit.com/bvincent1/snitcher/c5dc3078/snitch_tag.js" integrity="sha384-lnbviq+Cc8CLcs6GOr0xW+/Cwgjy/qW2EQwWWXRJM4inxXWz1wh+zVf3fsVNHIDU" crossorigin="anonymous" charset="utf-8"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNN693"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+  <a href="/" class="header-logo" title="Hack n Slash">Hack n Slash</a>
+  <ul class="header-links">
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/bvincent1" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:benjc.vincent@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" target="_blank" title="RSS">
+          <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>eClass for lazy people</h1>
+            <p>I'm lazy. Checking for updated notes is lame. WGET has a `--no-clobber` option.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                July 6, 2015
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  6 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/python">python</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="intro">Intro</h2>
+<p>Welcome to my first post and foray into the world of online blogging. Witness my attempt to both document my projects and teach others about the wonderful world of hack and slash scripting that I have come to love.</p>
+
+<h2 id="explanation">Explanation</h2>
+<p>Because I’m lazy and I don’t like having to keep checking eClass (the online class resource for U of A) I decided that I should invest the time required to build a scrapper for the eclass course pages. I decided that I wanted to use wget and python to achieve this. Python happens to be my go to for small scripting projects as it is my mother tongue and the easiest for me to remember when starting anew. My choice for wget over curl, and even python based web clients (EG: requests, or even the dreaded urllibs) was due to both my desire to learn more about command line web interaction, as well as the discovery of the clobber flag for wget. Having previously tried to download an entire classes worth of pdfs in one go, I quickly discovered that eclass starts to throttle and even halt users consuming large amounts of bandwidth. This revelation inspired me to be considerate of only downloading new files, and keeping unchanged files untouched on my local machine.</p>
+
+<h2 id="meat--potatoes">Meat &amp; Potatoes</h2>
+<p>Moving forwards we find that there are 4 problems to face. In order they are:</p>
+
+<ol>
+  <li>Masking the client</li>
+  <li>Authenticating the user</li>
+  <li>Extracting the pdf URLs</li>
+  <li>Putting it all together</li>
+</ol>
+
+<h3 id="1-masking-the-client">1. Masking the client</h3>
+<p>As it turns out masking a get request takes place by defining the user agent of the requesting service. In our case we need to pass in our agent to the wget command with the <em>--user-agent</em> flag.</p>
+
+<p>A quick google for “masking user-agents” turns up plenty of results and I eventually decide to use</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Mozilla/5.0 <span class="o">(</span>X11; Linux x86_64<span class="o">)</span> AppleWebKit/537.36 <span class="o">(</span>KHTML, like Gecko<span class="o">)</span> Chrome/41.0.2272.118 Safari/537.36</code></pre></figure>
+
+<p>This will make sure our requests look like a normal user browsing the site, and therefore will enable us to proceed with less hassle.</p>
+
+<h3 id="2-authenticating-the-user">2. Authenticating the user</h3>
+<p>This part is quite easy to accomplish since wget supports post requests. All we need to do is supply our password and user name, and make the correct request. Then all we have to do is save our cookie for our next few requests. The first of these functionalities will be accomplished through the <em>--post-data</em> flag. This will tell wget to post the provided key-value data to the site. We will also use the <em>--save-cookies</em> flag to keep our session cookie for when we retrieve our pdfs. We will save our cookie to a file and load it later.</p>
+
+<p>Up to this point our command looks like this:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"> wget --save-cookies cookie.txt --user-agent <span class="s2">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36"</span> --post-data <span class="s2">"user=foo&amp;password=bar"</span> </code></pre></figure>
+
+<p><em>I leave it up to you to figure out where to fill in your actual credentials</em></p>
+
+<h3 id="3-extracting-the-pdf-urls">3. Extracting the pdf URLs</h3>
+<p>Now that we’ve acquired all the info we need in order to access the pdfs, we can go about extracting the links from the class info page. To do this we will make a request for the main class info page and use python’s re library to extract them.</p>
+
+<p>Using the ever usefull dev tools in google chrome we can see that the files are linked inside href tags for the file icon images. These hrefs link to an id that is associated with the file. This means that we need to get all the ids and then call the links instead of just calling a set link with the filename as the URL key.</p>
+
+<p><a href="/assets/eclass_source.png" class="fluidbox-trigger">
+  <img src="/assets/eclass_source.png" alt="Source for Eclass" />
+</a></p>
+
+<p>This actually makes our job easier since we can now simply look for a string of numbers. We then need to create a regular expression to target these ids. To do this I recommend using my favorite tool <a href="http://www.regexr.com/">RegExr</a>. This is well a put together tool for building and testing regular expressions. I highly recommend it, and I encourage anyone interested to browse the favorites for any usefull insights and re’s that they might need down the road.</p>
+
+<p>Using RegEx we come up with <em>/resource\/view.php\?id=([0-9]{7,})/</em> as our regular expression.</p>
+
+<p>Now that we have the expression we need to start writing the code. As previously mentioned I’ll be using python. The code will run on either version, but mine will default to 2.7.</p>
+
+<p>First we make our shebang and our imports</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/env python</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">subprocess</span> <span class="kn">as</span> <span class="nn">sub</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span></code></pre></figure>
+
+<p>We will use the subprocess module to call wget from the python. We will also take the argument for the target class from argv.
+Next up we create our two functions to implement our wget calls using the python subprocess module. We also defined our target sites that we want to get the cookie from.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">getCookie</span><span class="p">():</span>
+	<span class="c"># def local vars</span>
+	<span class="n">auth_site</span> <span class="o">=</span> <span class="s">"https://weblogin.srv.ualberta.ca/"</span>
+	<span class="n">auth_cookie</span> <span class="o">=</span> <span class="s">"cookie.txt"</span>
+
+
+	<span class="c"># get credentials from user and build cmd</span>
+	<span class="n">auth_usr</span> <span class="o">=</span> <span class="s">'foo'</span>  <span class="c"># could also use str(raw_input("User Name:"))</span>
+	<span class="n">auth_pass</span> <span class="o">=</span> <span class="s">'bar'</span> <span class="c"># could also use getpass.getpass("Password:")</span>
+	<span class="n">cmd</span> <span class="o">=</span> <span class="s">"wget --save-cookies "</span> <span class="o">+</span> <span class="n">auth_cookie</span> <span class="o">+</span> <span class="s">" --post-data 'user="</span> <span class="o">+</span> <span class="n">auth_usr</span> <span class="o">+</span> <span class="s">"&amp;pass="</span> <span class="o">+</span> <span class="n">auth_pass</span> <span class="o">+</span> <span class="s">"' "</span> <span class="o">+</span> <span class="n">auth_site</span>
+
+	<span class="c"># call wget with contructed cmd</span>
+	<span class="c">#print(cmd)</span>
+	<span class="n">sub</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">auth_cookie</span>
+
+<span class="k">def</span> <span class="nf">getPage</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">cookie</span><span class="p">):</span>
+	<span class="c"># def local vars</span>
+	<span class="n">page_output</span> <span class="o">=</span> <span class="s">"site.html"</span>
+
+	<span class="c"># build cmd and get eclass page</span>
+	<span class="n">cmd</span> <span class="o">=</span> <span class="s">"wget --load-cookies "</span> <span class="o">+</span> <span class="n">cookie</span> <span class="o">+</span> <span class="s">" --output-document "</span> <span class="o">+</span> <span class="n">page_output</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">site</span>
+	<span class="c">#print(cmd)</span>
+	<span class="n">sub</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">page_output</span></code></pre></figure>
+
+<h3 id="4-putting-it-all-together">4. Putting it all together</h3>
+
+<p>And Finally we have the function in charge of taking our downloaded site and extracting the URLs and then using the ids to contruct our wget command. Notice that in this code I have used the shortened <em>-nc</em> command simply out of preference.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">getFiles</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">cookie</span><span class="p">):</span>
+	<span class="c"># def local vars</span>
+	<span class="n">target_exp</span> <span class="o">=</span> <span class="s">r"resource</span><span class="err">\</span><span class="s">/view.php</span><span class="err">\</span><span class="s">?id=([0-9]{7,})"</span>
+	<span class="n">target_folder_exp</span> <span class="o">=</span> <span class="s">r"folder</span><span class="err">\</span><span class="s">/view.php</span><span class="err">\</span><span class="s">?id=([0-9]{7,})"</span>
+	<span class="n">target_main</span> <span class="o">=</span> <span class="s">"https://eclass.srv.ualberta.ca/mod/resource/view.php?id="</span>
+
+	<span class="c"># open site page</span>
+	<span class="n">txt</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+	<span class="c"># get target file ids</span>
+	<span class="n">target_id_list</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">target_exp</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">target_id_list</span><span class="p">:</span>
+		<span class="n">cmd</span> <span class="o">=</span> <span class="s">"wget -nc --load-cookies "</span> <span class="o">+</span> <span class="n">cookie</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="n">target_main</span> <span class="o">+</span> <span class="n">i</span>
+		<span class="c">#print(cmd)</span>
+		<span class="n">sub</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></code></pre></figure>
+
+<p>I would also like to keep our code clean by putting all the actual function calls behind an <em>if __name__ == “__main__“</em>. If you are unfamiliar perhaps a <a href="http://ibiblio.org/g2swap/byteofpython/read/module-name.html">google</a> is in order.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># ### main ### #</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+	<span class="k">if</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">"http"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="c"># get cookie and access page</span>
+		<span class="n">c</span> <span class="o">=</span> <span class="n">getCookie</span><span class="p">()</span>
+		<span class="n">p</span> <span class="o">=</span> <span class="n">getPage</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="p">)</span>
+		<span class="c"># get files</span>
+		<span class="n">getFiles</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"Error, missing arguments"</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="s">"SITE OUTPUT_DIR"</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="possible-improvements">Possible Improvements</h2>
+<p>A list of things that could certainly be implemented or even improved on:</p>
+
+<ul>
+  <li>Scrapes all enrolled course pages at once</li>
+  <li>Optional predefined file layout, to allow for auto organization of downloaded files</li>
+  <li>Setting up the script as a cron job</li>
+  <li>Adding (email) notifications of new files</li>
+  <li>Any other reasonable idea</li>
+</ul>
+
+<p>If you do come up with any improvements send me an email with them as I’d love to see. I might even use it myself.</p>
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=eClass for lazy people - blog.hacknslash.io/posts/eclass-for-lazy-people ', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=blog.hacknslash.io/posts/eclass-for-lazy-people', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=blog.hacknslash.io/posts/eclass-for-lazy-people', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+    Hack it up
+  </p>
+  <script type="text/javascript">
+    console.log("I see you've found the egg.\n Maybe I'll import some cool modules down here and do some work on your machine? >:)");
+  </script>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" crossorigin="anonymous" integrity="sha384-0bIyOfFEbXDmR9pWVT6PKyzSRIx8gTXuOsrfXQA51wfXn3LRXt+ih6riwq9Zv2yn"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

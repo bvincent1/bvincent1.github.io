@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WNN693');</script>
+  <!-- End Google Tag Manager -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Hack n Slash | Going Serverless</title>
+  <meta name="description" content="Yet another lambda appraisal blog. I know there's tons. But it's cool and hip. And Easy.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Going Serverless">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="blog.hacknslash.io/posts/serverless">
+  <meta property="og:description" content="Yet another lambda appraisal blog. I know there's tons. But it's cool and hip. And Easy.">
+  <meta property="og:site_name" content="Hack n Slash">
+  <meta property="og:image" content="blog.hacknslash.io/assets/documentation/sample-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="blog.hacknslash.io/posts/serverless">
+  <meta name="twitter:title" content="Going Serverless">
+  <meta name="twitter:description" content="Yet another lambda appraisal blog. I know there's tons. But it's cool and hip. And Easy.">
+  <meta name="twitter:image" content="blog.hacknslash.io/assets/documentation/sample-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="blog.hacknslash.io/feed.xml" type="application/rss+xml" rel="alternate" title="Hack n Slash Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/dark.css">
+  
+
+  <script src="https://cdn.rawgit.com/bvincent1/snitcher/c5dc3078/snitch_tag.js" integrity="sha384-lnbviq+Cc8CLcs6GOr0xW+/Cwgjy/qW2EQwWWXRJM4inxXWz1wh+zVf3fsVNHIDU" crossorigin="anonymous" charset="utf-8"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNN693"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+  <a href="/" class="header-logo" title="Hack n Slash">Hack n Slash</a>
+  <ul class="header-links">
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/bvincent1" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:benjc.vincent@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" target="_blank" title="RSS">
+          <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>Going Serverless</h1>
+            <p>Yet another lambda appraisal blog. I know there's tons. But it's cool and hip. And Easy.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                January 27, 2017
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  4 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/serverless">serverless</a>
+                
+                  <a href="/tag/aws">aws</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="lambda">Lambda</h2>
+<p>“AKA FaaS”</p>
+
+<p>If you’re like me, one of the biggest problems you’ve always had was where to run your code. Sure most think that you can just scramble together a home server and run it all locally. But then how to you remotely do changes? Is it only secured to the local network? How do you know if it breaks? I can’t connect, did the server shutdown? Why didn’t my cron job work?</p>
+
+<p>These questions are constantly at the back of mind when I work with my crappy out of date server running on decade old hardware plugged into the corner of my living room where it won’t keep me or my roommates awake at night.</p>
+
+<p>I try to keep all these problems in mind whenever I find myself bored at work since it’ll give me something to research and keep up to date with. Most recently I came across <a href="https://serverless.com/">Serverless</a> and AWS <a href="http://docs.aws.amazon.com/lambda/latest/dg/welcome.html">Lambda</a>. When I first looked into it, it seemed like a strange and very niche concept.</p>
+
+<p>“Who’d wanna run only 1 function at a time? How could you even do anything with that?”</p>
+
+<p>These were the plebeian questions that floated in my head when I first heard of this. Little did I know that this was not even remotely what FaaS is even directed towards. As it turns out I was completely missing the point of this whole service.</p>
+
+<ul>
+  <li>Your code runs on a server</li>
+  <li>You don’t have to manage anything, so someone else is worrying about the uptime</li>
+  <li>It’s just a function</li>
+  <li>It can be triggered by a variety of events</li>
+</ul>
+
+<h4 id="revisiting-my-concerns">Revisiting my concerns</h4>
+<p><del>But then how to you remotely do changes?</del><br />
+<del>Is it only secured to the local network?</del><br />
+<del>How do you know if it breaks?</del><br />
+<del>I can’t connect, did the server shutdown?</del><br />
+<del>Why didn’t my cron job work?</del></p>
+
+<p>So I’m an idiot.</p>
+
+<p>Without server ado I present to you yet another AWS Lambda quick start tutorial!!</p>
+<h6 id="cept-i-actually-have-no-clue-how-to-do-it-manually-and-honestly-i-dont-really-want-to-learn-so-instead-i-present">Cept I actually have no clue how to do it manually, and honestly I don’t really want to learn, so instead I present:</h6>
+
+<h2 id="serverless">Serverless</h2>
+<p>“Welcome to AWS: the most convoluted and feature bloated web services provider I can imagine”</p>
+
+<p>Install serverless:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>npm install -g serverless
+</code></pre>
+</div>
+
+<p>Set environment variables to your aws admin keys:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># add to .bashrc or whatever file you use</span>
+<span class="nb">export </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>GETUROWNACCESSKEY
+<span class="nb">export </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>ITSASECRET
+</code></pre>
+</div>
+
+<p>Create a starter project:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>serverless create --template aws-nodejs
+<span class="nb">cd </span>aws-nodejs
+</code></pre>
+</div>
+
+<p>Deploy the project:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>serverless deploy
+</code></pre>
+</div>
+
+<p>Look at how easy that was! We just deployed code to a server without any manual configuration, or even tinkering to get it working. Of course if we wanted to tinker with it we can absolutely look into <code class="highlighter-rouge">serverless.yaml</code> which houses all our configurations, names, and <code class="highlighter-rouge">env</code> variables that we need. So let’s do that.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>service: aws-nodejs # name of our app
+
+provider:
+  name: aws # which FaaS provider we're going to use
+  runtime: nodejs4.3
+
+functions:
+  hello: # name of our function at the FaaS level
+    handler: handler.hello # file_name.function_name
+</code></pre>
+</div>
+
+<p>Now this is a basic app that doesn’t do much. But the point here is to show just how each it is to start and create an app from a basic template. From here we could add libs with <code class="highlighter-rouge">npm install newest-crazy-thing</code> and it’d automatically get installed at the FaaS level. Now all we have to figure out is the code, not the configuration.</p>
+
+<h2 id="aws-lambda-framework">AWS Lambda framework</h2>
+<p>“Nano services with a smile!”</p>
+
+<p>Let’s take a look at the function call and see what the arguments and responses look like.</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="s1">'use strict'</span><span class="p">;</span>
+
+<span class="c1">// our FaaS function needs to match the handler file_name.function_name template</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="p">.</span><span class="nx">hello</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">statusCode</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+      <span class="na">message</span><span class="p">:</span> <span class="s1">'Go Serverless v1.0! Your function executed successfully!'</span><span class="p">,</span>
+      <span class="na">input</span><span class="p">:</span> <span class="nx">event</span><span class="p">,</span>
+    <span class="p">}),</span>
+  <span class="p">};</span>
+
+  <span class="c1">// send our response to the http event</span>
+  <span class="nx">callback</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">response</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>Here’s a quick overview of the arguments passed to us:</p>
+<ul>
+  <li><code class="highlighter-rouge">context</code> is an object for looking up runtime data about our function (time left, function name, <a href="http://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html#nodejs-prog-model-context-methods">etc</a>)</li>
+  <li><code class="highlighter-rouge">event</code> is the event that triggered our function. In our case this will be the body of the request</li>
+</ul>
+
+<p><em>If we weren’t using http events, the event would be one of <a href="http://docs.aws.amazon.com/lambda/latest/dg/eventsources.html">these</a></em></p>
+
+<p>The callback arguments looks like</p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">callback</span><span class="p">(</span><span class="nb">Error</span> <span class="nx">error</span><span class="p">,</span> <span class="nb">Object</span> <span class="nx">result</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Now I don’t like amazon as a software company because of their crazy stupid software practices (Yeah take that Jeff Bezos, I’m calling you out!!), but that doesn’t mean that they don’t have a lot of cool stuff. Unfortunately navigating their cool stuff requires a lot of digging around, and even reading blogs just to figure out what all these names even mean.</p>
+
+<p>All in all, I’m super excited by this stuff since it’s very much a service that handles my use cases and offer a lot of space for interesting development.</p>
+
+<p>Long term my only concern is with scalability and long-running functions. It will be interesting to see how the eco-scape grows around this service and to see how it will adapt to the restrictions that it presents.</p>
+
+<p>Think that I’m wrong? Maybe I missed out on something? Leave me a comment over <a href="https://github.com/bvincent1/bvincent1.github.io/issues/2">here</a></p>
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=Going Serverless - blog.hacknslash.io/posts/serverless ', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=blog.hacknslash.io/posts/serverless', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=blog.hacknslash.io/posts/serverless', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+    Hack it up
+  </p>
+  <script type="text/javascript">
+    console.log("I see you've found the egg.\n Maybe I'll import some cool modules down here and do some work on your machine? >:)");
+  </script>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" crossorigin="anonymous" integrity="sha384-0bIyOfFEbXDmR9pWVT6PKyzSRIx8gTXuOsrfXQA51wfXn3LRXt+ih6riwq9Zv2yn"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

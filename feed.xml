@@ -1,20 +1,50 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ page.path | absolute_url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>Hack n Slash</title>
+    <description></description>
+    <link>blog.hacknslash.io</link>
+    <atom:link href="blog.hacknslash.io/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.description | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <title>Interview Cheat Sheet</title>
+        <description>This isn't a cheat sheet for me, it's for you!</description>
+        <pubDate>Mon, 29 May 2017 00:00:00 -0600</pubDate>
+        <link>blog.hacknslash.io/posts/interview-cheat-sheet</link>
+        <guid isPermaLink="true">blog.hacknslash.io/posts/interview-cheat-sheet</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Plus Minus</title>
+        <description>Have a little fun with so called metrics</description>
+        <pubDate>Thu, 11 May 2017 00:00:00 -0600</pubDate>
+        <link>blog.hacknslash.io/posts/plus-minus</link>
+        <guid isPermaLink="true">blog.hacknslash.io/posts/plus-minus</guid>
+      </item>
+    
+      <item>
+        <title>Going Serverless</title>
+        <description>Yet another lambda appraisal blog. I know there's tons. But it's cool and hip. And Easy.</description>
+        <pubDate>Fri, 27 Jan 2017 00:00:00 -0700</pubDate>
+        <link>blog.hacknslash.io/posts/serverless</link>
+        <guid isPermaLink="true">blog.hacknslash.io/posts/serverless</guid>
+      </item>
+    
+      <item>
+        <title>IMPuppet</title>
+        <description>IM Leagues sucks, lets automate it.</description>
+        <pubDate>Tue, 15 Sep 2015 00:00:00 -0600</pubDate>
+        <link>blog.hacknslash.io/posts/impuppet</link>
+        <guid isPermaLink="true">blog.hacknslash.io/posts/impuppet</guid>
+      </item>
+    
+      <item>
+        <title>eClass for lazy people</title>
+        <description>I'm lazy. Checking for updated notes is lame. WGET has a `--no-clobber` option.</description>
+        <pubDate>Mon, 06 Jul 2015 00:00:00 -0600</pubDate>
+        <link>blog.hacknslash.io/posts/eclass-for-lazy-people</link>
+        <guid isPermaLink="true">blog.hacknslash.io/posts/eclass-for-lazy-people</guid>
+      </item>
+    
   </channel>
 </rss>

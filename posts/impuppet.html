@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WNN693');</script>
+  <!-- End Google Tag Manager -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Hack n Slash | IMPuppet</title>
+  <meta name="description" content="IM Leagues sucks, lets automate it.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="IMPuppet">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="blog.hacknslash.io/posts/impuppet">
+  <meta property="og:description" content="IM Leagues sucks, lets automate it.">
+  <meta property="og:site_name" content="Hack n Slash">
+  <meta property="og:image" content="blog.hacknslash.io/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="blog.hacknslash.io/posts/impuppet">
+  <meta name="twitter:title" content="IMPuppet">
+  <meta name="twitter:description" content="IM Leagues sucks, lets automate it.">
+  <meta name="twitter:image" content="blog.hacknslash.io/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="blog.hacknslash.io/feed.xml" type="application/rss+xml" rel="alternate" title="Hack n Slash Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/dark.css">
+  
+
+  <script src="https://cdn.rawgit.com/bvincent1/snitcher/c5dc3078/snitch_tag.js" integrity="sha384-lnbviq+Cc8CLcs6GOr0xW+/Cwgjy/qW2EQwWWXRJM4inxXWz1wh+zVf3fsVNHIDU" crossorigin="anonymous" charset="utf-8"></script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNN693"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+  <a href="/" class="header-logo" title="Hack n Slash">Hack n Slash</a>
+  <ul class="header-links">
+    
+    
+    
+    
+      <li>
+        <a href="https://github.com/bvincent1" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:benjc.vincent@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" target="_blank" title="RSS">
+          <span class="icon icon-social-rss"></span>
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>IMPuppet</h1>
+            <p>IM Leagues sucks, lets automate it.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                September 15, 2015
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  6 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/python">python</a>
+                
+                  <a href="/tag/selenium">selenium</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <h2 id="intro">Intro</h2>
+<p>Welcome all returning residents to the 2015 / 2016 school year. This year at the u of a we are happy to present the automation of the intramural system. This new system streamlines the dreaded task of building teams and submitting them to some rep at the office. Now for average user this is probably a really cool and useful thing. It allows people to coordinate with others assuming for sports. All they have to do is make the team, select the captain, and invite all the players. The only downside to this is that there are quizzes that must be completed to join each team. Also if it so happens that most of your users are lazy and for the most part participate not because they enjoy the sports so to speak, but because they enjoy the tradition, or maybe they don’t know any  better.</p>
+
+<p>So with this I present to you my solution. We automate the quiz taking for anybody who is willing to part with there beloved password. Now some people might think this a monumental task of somehow de-configuring the post / get methods into sending a quiz “packet” and doing all the work of the user backend as part of you main function. Those people are what I’d like to call “over workers”. Certainly this is a way to go about solving the problem, but I like to use the easiest tool at my disposal when it comes to dealing with something as benign as this. This is why I plan to script the entire process with the help of my favorite web automation tool Selenium.</p>
+
+<h2 id="selenium">Selenium</h2>
+<p><a href="https://selenium-python.readthedocs.org/">Selenium</a> is a great little piece of open source software that I love to use when I don’t feel like de-constructing some site just to find out that I need to learn packet and/or post crafting (which is always). As usual I’m going to go ahead and use the python api since this is a small-ish project, and I want to get this up and running as quickly as possible. Maybe someday I’ll use not python, but for now its all I got.</p>
+
+<p>Diving right in we first need to begin with importing and opening a session. This chunk is my usual snippet for starting off:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+
+<span class="c"># init firefox session</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="user-authentication">User Authentication</h2>
+
+<p>So with that out of the way we now have the driver object which is now our browser. Now forewarning to those who’ve never used selenium, this is hardly the fastest way to do this, and in fact I’m fairly certain this is basically the slowest way to do this. So benchmarking aside, the next step is to ho about authorizing our session.
+<a href="/assets/imlogin.png" class="fluidbox-trigger">
+  <img src="/assets/imlogin.png" alt="IM league's crappy login page" />
+</a></p>
+
+<p>Ignoring the Facebook integration it looks like we have 3 entries to fill out. At first glance these all seem easy enough, but theres a problem. Upon actually interacting with the school selection entry we quickly seem that this’ll be a problem.</p>
+
+<p><a href="/assets/school.png" class="fluidbox-trigger">
+  <img src="/assets/school.png" alt="School selection dropdown with autocomplete" />
+</a></p>
+
+<p>This is a problem because the dev tools indicate to us that this is a dynamic div that doesn’t use ids. This means that we cant use the find_element_by_id method that I planed to rely on. Now this isn’t impossible to fix. I could explain how I used an xpath to isolate the correct entry item and then planned on using a CSS selector (bassically the same as the id selector, but a tad less accurate due to how CSS works). But unfortunately thats a dead end because the final entry has no uniquely identifiable characteristics. This tells me that I need to figure out some other way of authenticating, or some way of finding a way of preselecting my school. I want to stick to using selenium for this portion and I immediately rule out using something like a <a href="http://bvincent1.github.io/2015/07/06/eClass%20for%20lazy%20people.html">wget authentication</a> like my last time. I’m also not going to use other tools that are <a href="https://github.com/scrapy/loginform">specifically designed</a> for this. I’m not completely convinced that I need to use this form altogether. Since upon entering the school, I’m immediately greeted by a customized screen, I feel as if there’s some back-end page that I can get that already has the correct school filled in. Finding the unique ID from the form is easy. Finding the way to add it to the url is not. Luckily I’m saved by the designers who conveniently added a “schools using this SaaS” type page, which has my school listed and conveniently has a link with the correct url api call that I need.</p>
+
+<p>With that out of the way I have the following snippet:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># enter user</span>
+<span class="n">user_input</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="n">usr_input</span><span class="p">)</span>
+<span class="n">user_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="c"># get your own creds</span>
+
+<span class="c"># enter pass</span>
+<span class="n">pass_input</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="n">pass_input</span><span class="p">)</span>
+<span class="n">pass_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pwd</span><span class="p">)</span> <span class="c"># get your own creds</span>
+
+<span class="c">#submit</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s">"btnBeforeLogin"</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span></code></pre></figure>
+
+<h4 id="fyi-youll-need-to-fill-in-the-id-variables-with-actual-values-ive-left-those-as-is-for-the-sake-of-readability">FYI you’ll need to fill in the id variables with actual values. I’ve left those as-is for the sake of readability.</h4>
+
+<h2 id="get-to-the-quizzes">Get to the quizzes!!</h2>
+<p>So now that we’ve successfully logged in with our credentials we need to find our quizzes and navigate to the appropriate page. This part is trivial since all we need to do is find the page with the sports we need to register in, and then gather the appropriate links from the source. Taking a quick look at the main page we can see a notifications icon.</p>
+
+<p><a href="/assets/notifications.png" class="fluidbox-trigger">
+  <img src="/assets/notifications.png" alt="Notifications are for chumps" />
+</a></p>
+
+<p>Following that link we are brought to the team request page which will have any and all the tests.</p>
+
+<p><a href="/assets/invitation.png" class="fluidbox-trigger">
+  <img src="/assets/invitation.png" alt="inv pls!!" />
+</a></p>
+
+<p>This is now just a case of searching for the button and then clicking it to begin the test. Normally I’d actually try and build the urls from the team name and whatnot, but since that will basically involve the same steps of going to the team requests page anyways I figure that this is just over-complicating things. Also since the chances that there will be multiple quizzes at once are pretty small since I don’t actually play sports that much, and I figure this script will run fairly often anyways thereby reducing the chances even more.</p>
+
+<h2 id="run-the-gambit">Run the gambit</h2>
+<p>Now that we’ve tackled the easy problems its time to get down to business. Our main challenge for this project is infact deciding how to tackle the quiz questions. We have a few strategies to pick from.</p>
+
+<ul>
+  <li>Brute Force
+    <ul>
+      <li>Pros
+        <ul>
+          <li>easy to do</li>
+          <li>since its multiple choice we can guaranteed at most n run-throughs, where n is the maximum number of answers (eg: a,b,c,d,e &lt;=&gt; n = 5 tries max)</li>
+        </ul>
+      </li>
+      <li>Cons
+        <ul>
+          <li>can take a long time respective to the test / network speed</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Question / Answer Scraping
+    <ul>
+      <li>Pros
+        <ul>
+          <li>maximum 1 run-through per quiz</li>
+        </ul>
+      </li>
+      <li>Cons
+        <ul>
+          <li>requires a local database for keeping track of the questions + answer combos</li>
+          <li>need quiz questions and answers ahead of time to be effective</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>some combination thereof??</li>
+</ul>
+
+<p>Looking at our methods it seems that we have to make an important design choice. Brute force certainly seems attractive since it allows us to reduce complexity at the cost of efficiancy. However the requirements of time and network speed might outweigh its benefits. In turn, the database route is attractive since it allows us to answer all the tests at a very optimal rate, but requires the addition of a database, which adds complexity regardless of its implementation method.</p>
+
+<h3 id="to-be-continued">TO BE CONTINUED</h3>
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=IMPuppet - blog.hacknslash.io/posts/impuppet ', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=blog.hacknslash.io/posts/impuppet', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=blog.hacknslash.io/posts/impuppet', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+        </article>
+        <footer class="footer reveal">
+  <p>
+    Hack it up
+  </p>
+  <script type="text/javascript">
+    console.log("I see you've found the egg.\n Maybe I'll import some cool modules down here and do some work on your machine? >:)");
+  </script>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" crossorigin="anonymous" integrity="sha384-0bIyOfFEbXDmR9pWVT6PKyzSRIx8gTXuOsrfXQA51wfXn3LRXt+ih6riwq9Zv2yn"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

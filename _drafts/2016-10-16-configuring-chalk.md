@@ -129,7 +129,7 @@ $base-transition-speed: .2s;
 Chalk uses Google Fonts by default. You can change the font in `_includes/javascripts.html`.
 
 {% highlight html %}
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" crossorigin="anonymous" integrity="sha384-0bIyOfFEbXDmR9pWVT6PKyzSRIx8gTXuOsrfXQA51wfXn3LRXt+ih6riwq9Zv2yn"></script>
 <script>
   WebFont.load({
     google: {
